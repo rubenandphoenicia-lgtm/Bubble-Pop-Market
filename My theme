@@ -1,0 +1,15 @@
+my-theme/
+├── assets/
+│   └── style.css
+├── config/
+│   └── settings_schema.json
+├── layout/
+│   └── theme.liquid
+├── sections/
+│   └── header.liquid
+│   └── footer.liquid
+├── templates/
+│   └── index.liquid
+│   └── page.liquid
+└── snippets/
+    └── product-card.liquid
