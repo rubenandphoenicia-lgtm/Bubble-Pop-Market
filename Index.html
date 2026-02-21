@@ -1,0 +1,118 @@
+<!-- Bubble Pop Market Homepage - GitHub Ready -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bubble Pop Market LLC</title>
+<style>
+/* --- Fonts & General Styles --- */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+body { margin:0; font-family:'Fredoka One', sans-serif; background:linear-gradient(135deg,#a66dff,#ffb2e6); color:#fff; overflow-x:hidden;}
+a { text-decoration:none; }
+
+/* --- Header --- */
+header { position: sticky; top:0; background: rgba(0,0,0,0.2); display:flex; justify-content: space-between; align-items:center; padding:1rem 2rem; z-index:1000;}
+header img { height:60px; }
+nav a { margin:0 1rem; font-weight:bold; color:#fff; transition:0.3s;}
+nav a:hover { color:#fbe024; }
+
+/* --- Hero Section --- */
+.hero { text-align:center; padding:4rem 2rem; position: relative;}
+.hero h1 { font-size:3rem; background:linear-gradient(90deg,#ffb2e6,#a66dff,#fbe024); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-shadow:0 0 10px rgba(255,255,255,0.7);}
+.hero p { font-size:1.5rem; margin:1rem 0;}
+.hero .cta { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;}
+.hero .cta a { padding:0.8rem 2rem; border-radius:50px; font-weight:bold; transition:all 0.3s ease; box-shadow:0 0 15px rgba(255,255,255,0.6);}
+.hero .cta a.primary { background:#fbe024; color:#5a189a; }
+.hero .cta a.secondary { background:#a66dff; color:#fff; }
+
+/* --- Product Grid --- */
+.products { display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; padding:2rem;}
+.product-card { width:200px; background:rgba(255,255,255,0.1); border-radius:20px; padding:1rem; text-align:center; transition: all 0.3s ease; position:relative;}
+.product-card img { width:100%; border-radius:15px; margin-bottom:1rem;}
+.product-card h3 { margin-bottom:0.5rem; }
+.product-card p { margin-bottom:0.5rem; }
+.product-card button { padding:0.5rem 1rem; background:#fbe024; color:#5a189a; border:none; border-radius:50px; font-weight:bold; cursor:pointer;}
+.product-card:hover { transform: scale(1.05); box-shadow:0 0 25px rgba(255,255,255,0.7);}
+
+/* --- Footer --- */
+footer { text-align:center; padding:2rem; background: rgba(0,0,0,0.2);}
+footer p { margin:0.5rem 0; font-size:0.9rem;}
+
+/* --- Animations --- */
+@keyframes bounce { 0%,100%{transform: translateY(0);} 50%{transform: translateY(-20px);} }
+.hero img { animation:bounce 3s infinite; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <img src="cupcake-logo.png" alt="Cupcake the Cosmic Pup">
+  <nav>
+    <a href="/">Home</a>
+    <a href="/collections/galaxy-drop">Monthly Drop</a>
+    <a href="/collections/cosmic-nails">Cosmic Nails</a>
+    <a href="/collections/magic-charms">Magic Charms</a>
+    <a href="/collections/starry-premium">Starry Premium</a>
+    <a href="/pages/boba-truck">Boba Truck</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <h1>Bubble Pop Market LLC</h1>
+  <p>Cupcake is back with Galaxy Drops, charms, and matching nails! 🐶✨</p>
+  <div class="cta">
+    <a href="/pages/boba-truck" class="primary">Book a Bubble Party! 🫧</a>
+    <a href="/collections/galaxy-drop" class="secondary">Join the Fun! ✨</a>
+  </div>
+</section>
+
+<!-- Products -->
+<section class="products">
+  <!-- Example product cards -->
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200x200.png?text=Charm+1" alt="Charm 1">
+    <h3>Galaxy Charm #1</h3>
+    <p>$12.99</p>
+    <button>Add to Cart ✨</button>
+  </div>
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200x200.png?text=Nail+Set+1" alt="Nail Set 1">
+    <h3>Cosmic Nails Set 1</h3>
+    <p>$22.99</p>
+    <button>Add to Cart ✨</button>
+  </div>
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200x200.png?text=Premium+Item" alt="Premium Item">
+    <h3>Starry Premium</h3>
+    <p>$39.99</p>
+    <button>Add to Cart ✨</button>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2024 Bubble Pop Market LLC. Made with 💖</p>
+  <p>Privacy | Refund | Shipping | Terms</p>
+</footer>
+
+<!-- Glitter Script -->
+<script>
+const body=document.body;
+const canvas=document.createElement('canvas');
+canvas.style.position='fixed';canvas.style.top=0;canvas.style.left=0;canvas.style.width='100%';canvas.style.height='100%';canvas.style.pointerEvents='none';canvas.style.zIndex=0;
+document.body.appendChild(canvas);
+const ctx=canvas.getContext('2d');
+let particles=[];
+function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+window.addEventListener('resize',resizeCanvas);resizeCanvas();
+function createParticle(){const colors=['#ffb2e6','#a66dff','#fbe024','#fff','#ffc3e3'];return{x:Math.random()*canvas.width,y:Math.random()*canvas.height,radius:Math.random()*3+1,color:colors[Math.floor(Math.random()*colors.length)],dx:(Math.random()-0.5)*0.5,dy:(Math.random()-0.5)*0.5,alpha:Math.random()};}
+for(let i=0;i<200;i++){particles.push(createParticle());}
+function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{ctx.beginPath();ctx.arc(p.x,p.y,p.radius,0,Math.PI*2);const rgb=p.color.replace('#','').match(/.{2}/g).map(x=>parseInt(x,16)).join(',');ctx.fillStyle=`rgba(${rgb},${p.alpha})`;ctx.fill();p.x+=p.dx;p.y+=p.dy;p.alpha+=(Math.random()-0.5)*0.02;if(p.alpha<0)p.alpha=0;if(p.alpha>1)p.alpha=1;if(p.x<0||p.x>canvas.width||p.y<0||p.y>canvas.height){Object.assign(p,createParticle());}});requestAnimationFrame(animate);}
+animate();
+</script>
+
+</body>
+</html>
